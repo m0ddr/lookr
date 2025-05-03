@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    {% block meta_content %}
+
+    <meta property="og:url" content="{{ config.base_url | safe }}{%if page.path %}{{ page.path | safe}}{% endif %}" />
+    <meta property="og:site_name" content="{{ config.title }}"/>
+
+    {% if config.extra.bluesky_account %}
+    <meta name="twitter:site" content="＠{{ config.extra.bluesky_account }}">
+    <meta name="twitter:creator" content="@{{ config.extra.bluesky_account }}">
+    {% endif %}
+
+    {% if page.title %}
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta property="og:title" content="{{ page.title }}" />
+    {% else %}
+    <meta name="twitter:title" content="{{ config.title }}">
+    <meta property="og:title" content="{{ config.title }}" />
+    {% endif %}
+
+    {% if page.description %}
+    <meta name="description" content="{{ page.description | safe }}" />
+    <meta name="twitter:description" content="{{ page.description | safe }}">
+    <meta property="og:description" content="{{ page.description | safe }}" />
+    {% else %}
+    <meta name="description" content="{{ config.description | safe }}" />
+    <meta name="twitter:description" content="{{ config.description | safe }}">
+    <meta property="og:description" content="{{ config.description | safe }}" />
+    {% endif %}
+
+    <meta name="twitter:card" content="summary">
+    <meta property="og:type" content="website"/>
+
+    {% endblock meta_content %}
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    {% block rss %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml', trailing_slash=false) }}">
+    {% endblock %}
+
+    {% block atom %}
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="{{ get_url(path='atom.xml', trailing_slash=false) }}">
+    {% endblock %}
+
+    {% block title %}
+    <title>{{ config.title }}</title>
+    {% endblock content %}
+
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+        document.documentElement.classList.remove('dark')
+        }
+      </script>
+    
+    <link rel="stylesheet" href="{{ get_url(path='/css/base.css', cachebust=true) }}" />
+    <link rel="stylesheet" href="{{ get_url(path='/css/toc.css', cachebust=true) }}" />
+    <link rel="stylesheet" href="{{ get_url(path='/styles/styles.css', cachebust=true) }}" />
+
+</head>
+
+<body class="flex justify-center text-black dark:text-white transition dark:bg-neutral-900">
+    <div class="w-full max-w-[70rem] px-4 sm:px-7 lg:px-10">
+    <header class="flex flex-col max-w-3xl mx-auto text-center sm:flex-row items-center justify-between flex-wrap py-5">
+        <div class="flex flex-col items-start">
+        <h1 class="text-center sm:text-left text-5xl w-full font-semibold dark:text-blue-500 text-blue-600 hover:scale-110"><a href="{{ get_url(path="@/_index.md") }}">{{ config.title }}</a></h1>
+        <span class="text-neutral-500">{{ config.description }}</span>
+        </div>
+        <div class="flex items-center">
+        {% include "buttons.html" %}
+        </div>
+    </header>
+
+    <main class="w-full">
+        {% block content %}
+        nothing here
+        {% endblock %}
+    </main>
+
+    <footer class="mt-10 p-3 flex flex-col justify-center items-center dark:text-neutral-400 text-neutral-600 w-full"">
+        <p class="text-sm">&copy; {{ config.extra.author }} {{ now() | date(format="%Y") }}</p>
+        <p class="text-sm">Powered by <a href="https://www.getzola.org/">Zola</a> using the <a href="https://github.com/m0ddr/lookr">lookr</a> theme
+
+        </p>
+    </footer>
+    </div>
+</div>
+</body>
+<script src="{{ get_url(path='/js/toggle-theme.js', cachebust=true) }}"></script>
+</html>

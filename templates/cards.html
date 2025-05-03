@@ -1,0 +1,64 @@
+{% for page in paginator.pages %}
+    <li class="group mt-4">
+        <a href="{{ page.permalink | safe }}">
+            {% set meta = get_image_metadata(path=page.path ~ "banner.png", allow_missing=true) %}
+            <div class="relative flex flex-col max-h-[550px] rounded-2xl hover:scale-105
+                     border dark:border-neutral-700 border-neutral-400
+                     bg-neutral-100 dark:bg-neutral-850
+                     group-hover:bg-neutral-200 dark:group-hover:bg-neutral-800
+                     overflow-hidden transition">
+                <div class="z-10 p-2">
+                    <time class="text-xs p-2 !pb-0 text-black dark:text-white dark:drop-shadow-lg" datetime="{{ page.date | date(format='%+') }}">
+                        {{ page.date | date(format='%B %d, %Y') }}
+                    </time>
+                    <h1 class="text-xl font-semibold transition group-hover:text-blue-600 dark:group-hover:text-blue-400
+                             text-black dark:text-white dark:drop-shadow-lg p-2 !pt-0 !pb-0 w-full md:w-4/5">
+                        {{ page.title }}
+                    </h1>
+                    <p class="transition text-sm text-neutral-700 dark:text-neutral-400
+                         dark:drop-shadow-lg p-2 !pt-0 !pb-1 sm:!pb-2 w-full md:w-7/8">{{ page.description }}</p>
+                    <p class="flex items-center gap-2 transition text-xs text-black dark:text-white
+                             dark:drop-shadow-lg p-2 !pt-0 !pb-1 w-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+                        </svg>
+                        {{ page.reading_time }}
+                        min read
+                    </p>
+                </div>
+                {% if meta %}
+                    {% if page.extra.show_banner_on_index %}
+                        <div class="flex flex-col justify-end md:w-1/2 flex-shrink-0">
+                            <img
+                                class="absolute opacity-80 group-hover:opacity-70 top-0 end-0 z-0 h-full w-full object-cover transition-opacity duration-300" src="{{ get_url(path=page.path ~ 'banner.png') }}">
+                                <!-- Gradient Overlay -->
+                                <div class="absolute w-full inset-y-0 right-0 bg-gradient-to-l from-transparent to-60% dark:to-60%
+                                     to-neutral-100 dark:to-neutral-850
+                                     group-hover:to-neutral-200 dark:group-hover:to-neutral-800"></div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    <div class="rounded-2xl flex flex-col inset-0 z-10 justify-end
+                         {% if page.extra.show_banner_on_index %} bg-gradient-to-t {% endif %}
+                         from-neutral-850/60 dark:group-hover:from-neutral-700/80"></div>
+                </div>
+            </a>
+        </li>
+    {% endfor %}
+    {% if paginator %}
+        <div>
+            <nav class="flex flex-row justify-items-stretch justify-between w-full">
+                {% if paginator.previous %}
+                    <a class="mt-4 text-black dark:text-white bg-neutral-100 hover:scale-105 focus:outline-none font-medium
+                         rounded-xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-neutral-850 border dark:border-neutral-700 border-neutral-400
+                         focus:ring-4 focus:ring-neutral-200 dark:focus:ring-neutral-850" href="{{ paginator.previous | safe }}">Previous</a>
+                {% endif %}
+                {% if paginator.next %}
+                    <a class="mt-4 ml-auto text-black dark:text-white bg-neutral-100 hover:scale-105 focus:outline-none font-medium
+                         rounded-xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-neutral-850 border dark:border-neutral-700 border-neutral-400
+                         focus:ring-4 focus:ring-neutral-200 dark:focus:ring-neutral-850" href="{{ paginator.next | safe }}">Next</a>
+                {% endif %}
+            </nav>
+        </div>
+    {% endif %}
