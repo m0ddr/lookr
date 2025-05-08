@@ -4,7 +4,7 @@
             <img decoding="async" loading="lazy" class="!mb-0 rounded-2xl" src="{{ src }}" {%- if alt %}alt="{{ alt }}"{% endif %}/>
         </picture>
     {% if link %} </a> {% endif %}
-    <figcaption class="text-sm text-neutral-500">
+    <figcaption class="text-sm text-center text-zinc-500">
         {{ body | markdown(inline=true) | safe }}
     </figcaption>
 </figure>

@@ -8,6 +8,7 @@
         {% if config.extra.content.index_content %}
             <p class="pt-2 pb-4">{{ config.extra.content.index_content | markdown(inline=true) | safe }}</p>
         {% endif %}
+        <div class="mt-2 text-2xl font-semibold">Recent Posts:</div>
         <ul>
             {% include "cards.html" %}
         </ul>
