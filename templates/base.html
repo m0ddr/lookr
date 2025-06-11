@@ -75,7 +75,7 @@
         <h1 class="text-center sm:text-left text-5xl w-full font-semibold dark:text-blue-500 text-blue-600 hover:scale-110"><a href="{{ get_url(path="@/_index.md") }}">{{ config.title }}</a></h1>
         <span class="text-zinc-500">{{ config.description }}</span>
         </div>
-        <div class="flex items-center">
+        <div class="flex items-center gap-2 my-2">
         {% include "buttons.html" %}
         </div>
     </header>
@@ -87,7 +87,7 @@
     </main>
 
     <footer class="mt-10 p-3 flex flex-col justify-center items-center dark:text-zinc-400 text-zinc-600 w-full"">
-        <p class="text-sm">&copy; {{ config.extra.author }} {{ now() | date(format="%Y") }}</p>
+        <p class="text-sm">&copy; {{ config.author }} {{ now() | date(format="%Y") }}</p>
         <p class="text-sm">Powered by <a href="https://www.getzola.org/">Zola</a> using the <a href="https://github.com/m0ddr/lookr">lookr</a> theme
 
         </p>

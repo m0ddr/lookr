@@ -2,13 +2,12 @@
 
 {% block content %}
     <div class="w-full max-w-3xl mx-auto">
-        {% if config.extra.content.index_title %}
-            <h1 class="text-xl font-bold">{{ config.extra.content.index_title | safe }}</h1>
-        {% endif %}
-        {% if config.extra.content.index_content %}
-            <p class="pt-2 pb-4">{{ config.extra.content.index_content | markdown(inline=true) | safe }}</p>
-        {% endif %}
-        <div class="mt-2 text-2xl font-semibold">Recent Posts:</div>
+        {% if section.content %}
+        <div class="border rounded-lg p-5 dark:border-zinc-700 border-zinc-300">
+            {{ section.content | safe }}
+        </div>
+        <div class="mt-3 text-2xl font-semibold">Recent Posts:</div>
+        {% endif %}  
         <ul>
             {% include "cards.html" %}
         </ul>

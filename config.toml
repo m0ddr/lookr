@@ -22,10 +22,5 @@ highlight_theme = "visual-studio-dark"
 
 [extra]
 # Put all your custom variables here'
-author = "moddr"
 github_account = "m0ddr"
 bluesky_account = "moddr.xyz"
-
-[extra.content]
-index_title = "Hey there!"
-index_content = "<span class='dark:text-blue-400 text-blue-600'>Lorem ipsum odor amet</span>, consectetuer adipiscing elit. Sapien lacinia et sit imperdiet habitasse maecenas venenatis suscipit. Habitasse dapibus tellus platea ad tellus id. Erat sodales aliquam nulla vulputate habitasse senectus conubia. Class habitasse semper dis ad integer."

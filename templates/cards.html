@@ -2,7 +2,7 @@
     <li class="group mt-4">
         <a href="{{ page.permalink | safe }}">
             {% set meta = get_image_metadata(path=page.path ~ "banner.png", allow_missing=true) %}
-            <div class="relative flex flex-col max-h-[550px] rounded-2xl hover:scale-105
+            <div class="relative flex flex-col max-h-[550px] rounded-lg hover:scale-105
                      border dark:border-zinc-700 border-zinc-300
                      group-hover:bg-zinc-100 dark:group-hover:bg-zinc-800
                      overflow-hidden transition">
@@ -38,7 +38,7 @@
                             </div>
                         {% endif %}
                     {% endif %}
-                    <div class="rounded-2xl flex flex-col inset-0 z-10 justify-end
+                    <div class="rounded-lg flex flex-col inset-0 z-10 justify-end
                          {% if page.extra.show_banner_on_index %} bg-gradient-to-t {% endif %}
                          from-zinc-900/60 dark:group-hover:from-zinc-700/80"></div>
                 </div>
@@ -49,14 +49,14 @@
         <div>
             <nav class="flex flex-row justify-items-stretch justify-between w-full">
                 {% if paginator.previous %}
-                    <a class="mt-4 text-black dark:text-white hover:scale-105 focus:outline-none font-medium
-                         rounded-xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-zinc-900 border dark:border-zinc-700 border-zinc-400
-                         focus:ring-4 focus:ring-zinc-200 dark:focus:ring-zinc-800" href="{{ paginator.previous | safe }}">Previous</a>
+                    <a class="mt-4 text-black dark:text-white hover:scale-105 hover:bg-zinc-100 dark:hover:bg-zinc-800 font-medium
+                         rounded-md text-sm px-5 py-2.5 me-2 mb-2 dark:bg-zinc-900 border dark:border-zinc-700 border-zinc-300
+                         " href="{{ paginator.previous | safe }}">Previous</a>
                 {% endif %}
                 {% if paginator.next %}
-                    <a class="mt-4 ml-auto text-black dark:text-white hover:scale-105 focus:outline-none font-medium
-                         rounded-xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-zinc-900 border dark:border-zinc-700 border-zinc-400
-                         focus:ring-4 focus:ring-zinc-200 dark:focus:ring-zinc-800" href="{{ paginator.next | safe }}">Next</a>
+                    <a class="mt-4 ml-auto text-black dark:text-white hover:scale-105 hover:bg-zinc-100 dark:hover:bg-zinc-800 font-medium
+                         rounded-md text-sm px-5 py-2.5 me-2 mb-2 dark:bg-zinc-900 border dark:border-zinc-700 border-zinc-300
+                         " href="{{ paginator.next | safe }}">Next</a>
                 {% endif %}
             </nav>
         </div>

@@ -20,9 +20,8 @@
 
 {% block content %}
 
-<!-- TOC floating in right margin -->
 {% if page.extra.toc %}
-<aside class="hidden 2xl:block fixed top-32 left-[calc(50%+28rem)] w-64 z-10 transition-all duration-300 ease-out">
+<aside class="hidden 2xl:block fixed top-25 left-[calc(50%+28rem)] w-64 z-10 transition-all duration-300 ease-out">
     <div id="toc-container" class="sticky top-8">
         <h2 class="text-xl font-semibold mb-4">Contents</h2>
         <nav id="table-of-contents" class="toc text-sm"></nav>
@@ -30,7 +29,6 @@
 </aside>
 {% endif %}
 
-<!-- Main content - always centered and max-w-3xl -->
 <div class="w-full max-w-3xl mx-auto">
     <article class="prose prose-default max-w-full dark:prose-invert">
         {% set meta = get_image_metadata(path=page.path ~ "banner.png", allow_missing=true) %}
@@ -76,7 +74,6 @@
     </article>
 </div>
 
-<!-- Include the TOC JavaScript -->
 {% if page.extra.toc %}
     <script src="{{ get_url(path="js/toc.js") }}"></script>
 {% endif %}

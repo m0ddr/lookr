@@ -19,4 +19,6 @@ Rusty post
   ├── card.png
   └── index.md
 ```
-If done correcty you should be able to see the posts accordingly
+If done correcty you should be able to see the posts accordingly on social media:
+{% figure(src="images/opengraph.png") %} Example cards for Facebook and X (Twitter){% end %}
+For Open Graph cards it's suggested to use high-quality images with dimensions of at least 1,200 x 630 pixels, while keeping the file size under 8 MB (If the file was to exceed this size, your card.png will not be rendered on the cards)
