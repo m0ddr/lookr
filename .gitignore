@@ -1,0 +1,35 @@
+package-lock.json
+static/processed_images/*
+
+# Zola output
+public/
+*.sass-cache/
+*.cache/
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Tailwind CSS output
+tailwind.css
+tailwind.output.css
+*.tailwind.css
+
+# Build artifacts
+dist/
+build/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# VSCode settings
+.vscode/

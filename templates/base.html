@@ -66,13 +66,10 @@
       </script>
     
     <link rel="stylesheet" href="{{ get_url(path='/css/base.css', cachebust=true) }}" />
-    <link rel="stylesheet" href="{{ get_url(path='/css/toc.css', cachebust=true) }}" />
-    <link rel="stylesheet" href="{{ get_url(path='/styles/styles.css', cachebust=true) }}" />
-
 </head>
 
-<body class="flex justify-center text-black dark:text-white transition dark:bg-zinc-900">
-    <div class="w-full max-w-[70rem] px-4 sm:px-7 lg:px-10">
+<body class="text-black dark:text-white transition dark:bg-zinc-900">
+    <div class="w-full px-4 sm:px-7 lg:px-10">
     <header class="flex flex-col max-w-3xl mx-auto text-center sm:flex-row items-center justify-between flex-wrap py-5">
         <div class="flex flex-col items-start">
         <h1 class="text-center sm:text-left text-5xl w-full font-semibold dark:text-blue-500 text-blue-600 hover:scale-110"><a href="{{ get_url(path="@/_index.md") }}">{{ config.title }}</a></h1>
@@ -99,4 +96,5 @@
 </div>
 </body>
 <script src="{{ get_url(path='/js/toggle-theme.js', cachebust=true) }}"></script>
+<script src="{{ get_url(path='/js/codeblocks.js', cachebust=true) }}"></script>
 </html>

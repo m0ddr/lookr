@@ -1,6 +1,6 @@
 <figure {% if type %}class="{{ type }}"{% endif %}>
     {% if link %} <a href="{{ link }}}"> {% endif %}
-        <picture class="flex">
+        <picture class="flex justify-center">
             <img decoding="async" loading="lazy" class="!mb-0 rounded-2xl" src="{{ src }}" {%- if alt %}alt="{{ alt }}"{% endif %}/>
         </picture>
     {% if link %} </a> {% endif %}
