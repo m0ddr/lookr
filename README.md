@@ -15,3 +15,4 @@ My personal [Zola](https://www.getzola.org) blog theme for [moddr.xyz](https://m
 
 ## Credits
 This theme was inspired by [Videah's blog](https://blog.videah.net)
+
