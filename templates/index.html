@@ -3,7 +3,8 @@
 {% block content %}
     <div class="w-full max-w-3xl mx-auto">
         {% if section.content %}
-        <div class="border rounded-lg p-5 dark:border-zinc-700 border-zinc-300">
+        <div class="border rounded-lg p-5 dark:border-zinc-700 border-zinc-300 
+        bg-gradient-to-br from-zinc-50 to-white dark:from-zinc-800 dark:to-zinc-900">
             {{ section.content | safe }}
         </div>
         <div class="mt-3 text-2xl font-semibold">Recent Posts:</div>

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="w-full max-w-3xl mx-auto">
+    {# Tag header with navigation #}
+    <div class="border border-zinc-300 dark:border-zinc-700 rounded-lg p-6 mb-6 
+                bg-gradient-to-br from-zinc-50 to-white dark:from-zinc-800 dark:to-zinc-900">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+                <h1 class="text-2xl font-bold mb-2">{{ term.name }}</h1>
+                <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                    {{ term.pages | length }} post{% if term.pages | length != 1 %}s{% endif %} with this tag
+                </p>
+            </div>
+            <a href="/tags/" 
+               class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium
+                      rounded-md border border-zinc-300 dark:border-zinc-700
+                      bg-white dark:bg-zinc-900
+                      hover:bg-zinc-100 dark:hover:bg-zinc-800
+                      hover:text-blue-600 dark:hover:text-blue-400
+                      transition-all duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M2 2a2 2 0 0 1 2-2h4.586a2 2 0 0 1 1.414.586l7 7a2 2 0 0 1 0 2.828l-4.586 4.586a2 2 0 0 1-2.828 0l-7-7A2 2 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                    <path d="M1.293 7.793A1 1 0 0 1 1 7.086V2a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l.043-.043-1.414-1.414L1.293 7.793z"/>
+                </svg>
+                View all tags
+            </a>
+        </div>
+    </div>
+    
+    {% set posts = term.pages | sort(attribute="date") | reverse %}
+    {% set years = posts | group_by(attribute="year") %}
+    
+    {% for year, year_posts in years %}
+        <h2 class="text-xl font-semibold mt-6 mb-2">{{ year }}</h2>
+        <ul>
+            {% for page in year_posts %}
+                {% include "card.html" %}
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    
+    {# Related tags section #}
+    {% set all_related_tags = [] %}
+    {% for page in term.pages %}
+        {% for tag in page.taxonomies.tags %}
+            {% if tag != term.name and tag not in all_related_tags %}
+                {% set_global all_related_tags = all_related_tags | concat(with=tag) %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    
+    {% if all_related_tags %}
+        <div class="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-700">
+            <h3 class="text-lg font-semibold mb-4">Related Tags</h3>
+            <div class="flex flex-wrap gap-2">
+                {% for tag_name in all_related_tags | slice(end=10) %}
+                    <a href="/tags/{{ tag_name | slugify }}/" 
+                       class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm
+                              rounded-md dark:border-zinc-700 border-1 border-zinc-300
+                              bg-white dark:bg-zinc-900
+                              hover:bg-zinc-100 dark:hover:bg-zinc-800
+                              hover:text-blue-600 dark:hover:text-blue-400
+                              transition-all duration-200">
+                        {{ tag_name }}
+                    </a>
+                {% endfor %}
+                {% if all_related_tags | length > 10 %}
+                    <a href="/tags/" 
+                       class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm
+                              rounded-md dark:border-zinc-700 border-1 border-zinc-300
+                              bg-white dark:bg-zinc-900
+                              hover:bg-zinc-100 dark:hover:bg-zinc-800
+                              hover:text-blue-600 dark:hover:text-blue-400
+                              transition-all duration-200">
+                        View all tags →
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock content %}

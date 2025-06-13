@@ -3,6 +3,9 @@ title = "Simple Guides for Lookr"
 date = 2025-06-11
 description = "How to use this blog template."
 
+[taxonomies]
+tags = ["zola","blog"]
+
 [extra]
 toc = false
 +++
@@ -22,12 +25,12 @@ toc = false
 +++
 ```
 
-| Attribute     | Description                                                                                                                                                                                                 |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| title       | The title of the post.                                                                                                                                                                                      |
-| date   | The date the post was published.                                                                                                                                                                            |
-| description | A short description of the post. _Displayed on index_ page.                                                                                                                                                   |
-| toc        | Displays dynamic table of contents.                                                                                                                                                                                       |
+| Attribute     | Description |
+|---------------|-------------|
+| title| The title of the post.|
+| date| The date the post was published.| 
+| description | A short description of the post. _Displayed on index_ page.|
+| toc | Displays dynamic table of contents.|
 
 ## Where to Place the Post Files
 

@@ -3,6 +3,9 @@ title = "Example Post with Shortcodes"
 date = 2023-02-11
 description = "What an example post would look like, to test shortcodes"
 
+[taxonomies]
+tags = ["zola","blog"]
+
 [extra] 
 banner_label = false
 show_banner_on_index = false

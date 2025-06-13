@@ -3,6 +3,9 @@ title = "Markdown Syntax"
 date = 2023-02-11
 description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements. Shown in Metadata"
 
+[taxonomies]
+tags = ["markdown"]
+
 [extra] 
 show_banner_on_index = true
 toc = true
