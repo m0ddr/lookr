@@ -35,9 +35,9 @@
         <figure class="!mb-4 !mt-0">
             <div class="rounded-2xl">
                 <picture class="relative">
-                    <img height="500" class="cover-image relative z-10 h-auto w-full rounded-2xl object-contain" 
+                    <img height="500" class="cover-image relative z-10 h-auto w-full rounded-lg object-contain" 
                          src="{{ get_url(path=page.path ~ 'banner.png', cachebust=true) }}" alt="{{ page.title }}"/>
-                    <img height="500" class="absolute end-0 top-4 z-0 mt-0 h-full rounded-3xl opacity-60 blur-xl transition-opacity duration-300" 
+                    <img height="500" class="absolute end-0 top-4 z-0 mt-0 h-full rounded-xl opacity-60 blur-xl transition-opacity duration-300" 
                          src="{{ get_url(path=page.path ~ 'banner.png', cachebust=true) }}" fetchpriority="high" loading="eager" alt="">
                 </picture>
             </div>

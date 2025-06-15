@@ -35,7 +35,7 @@ function genTOC() {
 			a = document.createElement('a');
 		a.href = `#${e.id}`;
 		a.textContent = txt;
-		a.className = 'toc-link block py-1 hover:text-orange-500 transition-colors duration-200';
+		a.className = 'toc-link block py-1 transition-colors duration-200';
 		a.dataset.target = e.id;
 		a.addEventListener('click', ev => {
 			ev.preventDefault();

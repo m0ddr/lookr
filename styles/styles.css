@@ -9,7 +9,12 @@
 }
 
 body {
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, Adwaita Sans, Cantarell, Ubuntu, roboto, noto, helvetica, arial, sans-serif;
+}
+
+code::before,
+code::after {
+    content: none !important;
 }
 
 @layer page {
@@ -25,8 +30,14 @@ body {
     pre {
         @apply border border-zinc-700;
     }
-    p code {
-        @apply bg-zinc-200 dark:bg-zinc-800 rounded-sm p-0.5 font-bold;
+    pre code {
+        background-color: inherit;
+    }
+    code {
+        @apply bg-zinc-200 dark:bg-zinc-800 rounded-sm p-0.5 text-sm font-mono;
+    }
+    mark {
+        @apply text-white bg-primary-light/80 dark:bg-primary-dark/80 
     }
 }
 
