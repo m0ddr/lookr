@@ -8,11 +8,11 @@
     "@tailwindcss/typography": "^0.5.16"
   },
   "scripts": {
-    "build": "NODE_ENV=production npx @tailwindcss/cli -i styles/styles.css -o static/css/base.css; flatpak run org.getzola.zola build",
-    "watch": "concurrently \"npx @tailwindcss/cli -i styles/styles.css -o static/css/base.css --watch\" \"flatpak run org.getzola.zola serve\""
+    "build": "NODE_ENV=production npx @tailwindcss/cli -i styles/styles.css -o static/css/base.css; zola build",
+    "watch": "concurrently \"npx @tailwindcss/cli -i styles/styles.css -o static/css/base.css --watch\" \"zola serve\""
   },
   "name": "lookr",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "main": "index.js",
   "author": "m0ddr",
   "license": "MIT"
