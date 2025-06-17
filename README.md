@@ -1,5 +1,9 @@
-# lookr
+> [!WARNING]
+> **ARCHIVED - This theme is no longer maintained**
+> 
+> This repository has been archived and is no longer actively maintained. The `lookr` theme has been superseded by **[Halcyon](https://github.com/m0ddr/halcyon)**
 
+# lookr
 ![](static/images/screenshot.png)
 
 My personal [Zola](https://www.getzola.org) blog theme for [moddr.xyz](https://moddr.xyz)
